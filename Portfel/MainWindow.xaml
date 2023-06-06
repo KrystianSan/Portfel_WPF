@@ -1,12 +1,19 @@
 ﻿<Window x:Class="Portfel.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Portfel"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Portfel" Height="350" Width="525">
     <Grid>
-
+        <StackPanel Margin="20">
+            <TextBlock Text="Wallet Balance:" FontSize="18" FontWeight="Bold" Margin="0 0 0 10" />
+            <TextBlock x:Name="balanceText" FontSize="20" />
+            <Label HorizontalAlignment="Center">Transaction name</Label>
+            <TextBox x:Name="transactionNameTextBox" Margin="0 0 0 10" Width="200" />
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Name="balance" Text="Amount:" VerticalAlignment="Center" Margin="0 0 10 0" />
+                <TextBox x:Name="addAmountTextBox" Width="80" Text="10" />
+            </StackPanel>
+            <Button Content="Add Money" Click="AddMoney_Click" Margin="0 5" />
+            <Button Content="Remove Money" Click="RemoveMoney_Click" />
+        </StackPanel>
     </Grid>
 </Window>
