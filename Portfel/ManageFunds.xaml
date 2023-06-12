@@ -1,0 +1,80 @@
+﻿<Window x:Class="Portfel.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Portfel" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                
+            </Grid.ColumnDefinitions>
+            
+            
+
+            <StackPanel Grid.Column="0" Orientation="Vertical">
+
+                <TextBlock Name="tName" HorizontalAlignment="Center" Text="Transaction name" Margin="0 10 0 5"/>
+                <TextBox x:Name="transactionNameTextBox" Margin="0 0 0 15" Width="200" />
+
+
+
+                <TextBlock x:Name="groupName" Text="Group name" HorizontalAlignment="Center" Margin="0 0 0 5"/>
+
+                <ComboBox Margin="10 0 10 15">              <!--DODAC WYBÓR-->
+                    
+                </ComboBox>
+
+
+                <TextBlock Name="balance" Text="Amount:" HorizontalAlignment="Center" Margin="0 0 0 5" />
+                <TextBox x:Name="addAmountTextBox" Width="200" Text="10" />
+                
+                
+            </StackPanel>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                
+                
+                <StackPanel Grid.Row="0" Orientation="Vertical">
+                
+                    <TextBlock Text="Wallet Balance:" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Bottom"  />
+                    <TextBlock x:Name="balanceText" FontSize="20" Width="200" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" >                                              <!--NAPRWAIC ROZCIAGANEI-->
+                    <CheckBox IsChecked="True" Margin="5" >Present date</CheckBox>
+
+                    <TextBlock Name="dateName" Text="Date:" HorizontalAlignment="Center" Margin="0 0 0 5"  />
+                    <TextBox x:Name="dateTextbox" Width="200"/>
+                </StackPanel>
+                
+                
+                
+            </Grid>
+            
+            
+        </Grid>
+        
+        <Grid Grid.Row="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="Add Money" Click="AddMoney_Click" Margin=" 5" />
+            <Button Grid.Column="1" Content="Remove Money" Click="RemoveMoney_Click" Margin=" 5" />
+            <Button Grid.Column="2" Content="Back" Margin="5" Click="Button_Click"/>
+        </Grid>
+    </Grid>
+</Window>

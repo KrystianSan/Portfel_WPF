@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,35 +36,64 @@ namespace Portfel
         {
             // Get transaction name from the TextBox
             string transactionName = transactionNameTextBox.Text;
-            string boxBalance = balance;
+
+            //Get amount value
+            decimal boxBalance = Convert.ToDecimal(addAmountTextBox.Text);
+
             // Simulate adding money to the wallet
-            walletBalance += ;
+            walletBalance += boxBalance;
             UpdateBalanceText();
 
             // Clear the TextBox after adding money
             transactionNameTextBox.Clear();
+            addAmountTextBox.Clear();
 
             // Display a message box with the transaction details
-            MessageBox.Show($"Added $10 to the wallet.\nTransaction Name: {transactionName}");
+            MessageBox.Show($"Added $ {boxBalance} to the wallet.\nTransaction Name: {transactionName}");
         }
 
         private void RemoveMoney_Click(object sender, RoutedEventArgs e)
         {
             // Get transaction name from the TextBox
-            string transactionName = transactionNameTextBox.Text;
+            string transactionName = transactionNameTextBox.Text;                   //Bład przy pustym TextBox
+            decimal boxBalance = Convert.ToDecimal(addAmountTextBox.Text);
+
+            //Get amount value
+            if(boxBalance == null)
+            {
+                 MessageBox.Show($"Enter ammount of money");
+                return;
+            }
+            
+            
 
             // Simulate removing money from the wallet
-            if (walletBalance >= 10)
+            if (walletBalance >= boxBalance)
             {
-                walletBalance -= 10;
+                walletBalance -= boxBalance;
                 UpdateBalanceText();
 
                 // Clear the TextBox after removing money
                 transactionNameTextBox.Clear();
+                addAmountTextBox.Clear();
 
                 // Display a message box with the transaction details
-                MessageBox.Show($"Removed $10 from the wallet.\nTransaction Name: {transactionName}");
+
+                
+                MessageBox.Show($"Removed $ {addAmountTextBox.Text} from the wallet.\nTransaction Name: {transactionName}");
             }
+            else
+            {
+                MessageBox.Show($"There are not enough funds in the account. Transaction cancelled.");
+
+                transactionNameTextBox.Clear();
+                addAmountTextBox.Clear();
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
