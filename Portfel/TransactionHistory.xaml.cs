@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Portfel.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,11 +18,23 @@ namespace Portfel
     /// <summary>
     /// Logika interakcji dla klasy TransactionHistory.xaml
     /// </summary>
-    public partial class TransactionHistory : Window
+    public partial class TransactionHistory : Window   
     {
-        public TransactionHistory()
+
+        TransactionDbContext context;
+        
+
+        public TransactionHistory(TransactionDbContext context)
         {
+            this.context = context;
             InitializeComponent();
+            GetTransactions();
+
+        }
+
+        private void GetTransactions()
+        {
+            incomeDG.ItemsSource = context.Transactions.ToList();
         }
 
         private void btnManage_Click(object sender, RoutedEventArgs e)
