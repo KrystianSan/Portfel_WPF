@@ -20,7 +20,7 @@ namespace Portfel
     /// </summary>
     public partial class TransactionHistory : Window   
     {
-
+        public string Remaining balance
         
         
 
@@ -28,6 +28,8 @@ namespace Portfel
         {
             
             InitializeComponent();
+
+
             
 
         }
