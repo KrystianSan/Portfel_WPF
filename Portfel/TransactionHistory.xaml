@@ -12,7 +12,10 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="0.2*"/>
         </Grid.RowDefinitions>
-
+        <ToggleButton x:Name="DarkModeToggleButton" 
+              Content="Dark Mode"
+              Checked="DarkModeToggleButton_Checked"
+              Unchecked="DarkModeToggleButton_Unchecked" Height ="40"  Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <StackPanel HorizontalAlignment="Center">
             <TextBlock Text="Wallet Ballance"/>
             <TextBlock x:Name="walletBallanceTH"/>
@@ -61,7 +64,7 @@
 
             <Button x:Name="btnManage" Grid.Column="0" Content="Manage funds" Click="btnManage_Click" Margin="10"/>
 
-            <Button x:Name="btnStats" Grid.Column="1" Content="Show stats" Click="btnStats_Click" Margin="10"/>
+            <!--<Button x:Name="btnStats" Grid.Column="1" Content="Show stats" Click="btnStats_Click" Margin="10"/>-->
             <Button x:Name="btnQuit" Grid.Column="2" Content="Quit" Click="btnQuit_Click" Margin="10"/>
         </Grid>
     </Grid>
