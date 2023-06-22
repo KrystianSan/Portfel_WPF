@@ -20,7 +20,7 @@ namespace Portfel
     /// </summary>
     public partial class TransactionHistory : Window   
     {
-        public string Remaining balance
+        public string RemainingBalance = "";
         
         
 
@@ -50,6 +50,34 @@ namespace Portfel
         {
             Stats statsWindow= new Stats();
             statsWindow.Show();
+        }
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void transactionNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+        private void DarkModeToggleButton_Checked(object sender, RoutedEventArgs e)
+        {
+            App.IsDarkTheme = true;
+            ReloadResources();
+        }
+
+        private void DarkModeToggleButton_Unchecked(object sender, RoutedEventArgs e)
+        {
+            App.IsDarkTheme = false;
+            ReloadResources();
+        }
+
+        private void ReloadResources()
+        {
+            Current.Resources.MergedDictionaries.Clear();
+            var themeDictionary = new ResourceDictionary();
+            themeDictionary.Source = new Uri(App.IsDarkTheme ? "DarkTheme.xaml" : "LightTheme.xaml", UriKind.RelativeOrAbsolute);
+            Current.Resources.MergedDictionaries.Add(themeDictionary);
         }
     }
 }

@@ -16,7 +16,19 @@ namespace Portfel
     /// </summary>
     public partial class App : Application
     {
+        public static bool IsDarkTheme { get; set; }
 
-        
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+
+            // Load the appropriate theme based on the IsDarkTheme property
+            var themeDictionary = new ResourceDictionary();
+            themeDictionary.Source = new Uri(IsDarkTheme ? "DarkTheme.xaml" : "LightTheme.xaml", UriKind.RelativeOrAbsolute);
+            Current.Resources.MergedDictionaries.Add(themeDictionary);
+
+            // Start your main window or application here
+        }
+
     }
 }

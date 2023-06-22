@@ -15,7 +15,10 @@
         </Grid.RowDefinitions>
 
         <Rectangle Grid.Row="1" Fill="Gray"/>
-
+        <ToggleButton x:Name="DarkModeToggleButton" 
+              Content="Dark Mode"
+              Checked="DarkModeToggleButton_Checked"
+              Unchecked="DarkModeToggleButton_Unchecked" Height ="40"  Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <StackPanel Grid.Row="0" HorizontalAlignment="Center">
             <TextBlock Text="Wallet Ballance" FontSize="18" Margin="0 0 0 6"/>
             <TextBlock x:Name="walletBallanceTH" Text="12230" TextAlignment="Center" FontSize="25"/>
