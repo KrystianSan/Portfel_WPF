@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Portfel.Data
 {
-    class Transaction
+    public class Transaction
     {
         public int Id { get; set; }
         public string TransactionName { get; set; }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Portfel.Data;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -33,7 +34,8 @@ namespace Portfel
         }
 
         private void AddMoney_Click(object sender, RoutedEventArgs e)
-        {
+        {   
+            
             // Get transaction name from the TextBox
             string transactionName = transactionNameTextBox.Text;
 
@@ -48,8 +50,20 @@ namespace Portfel
             transactionNameTextBox.Clear();
             addAmountTextBox.Clear();
 
+            Transaction transaction = new Transaction
+            {
+                
+                TransactionName = transactionName,
+                Amount = boxBalance,
+                TransactionType = true
+            };
+
+            TransactionData.AddTransactionToDB(transaction);
+
             // Display a message box with the transaction details
             MessageBox.Show($"Added $ {boxBalance} to the wallet.\nTransaction Name: {transactionName}");
+
+
         }
 
         private void RemoveMoney_Click(object sender, RoutedEventArgs e)

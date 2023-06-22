@@ -21,22 +21,18 @@ namespace Portfel
     public partial class TransactionHistory : Window   
     {
 
-        TransactionDbContext context;
+        
         
 
-        public TransactionHistory(TransactionDbContext context)
+        public TransactionHistory()
         {
-            this.context = context;
+            
             InitializeComponent();
-            GetTransactions();
+            
 
         }
 
-        private void GetTransactions()
-        {
-            incomeDG.ItemsSource = context.Transactions.ToList();
-        }
-
+        
         private void btnManage_Click(object sender, RoutedEventArgs e)
         {
             MainWindow manageWindow= new MainWindow();
