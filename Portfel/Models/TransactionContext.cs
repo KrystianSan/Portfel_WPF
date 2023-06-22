@@ -11,7 +11,7 @@ namespace Portfel.Data
     {
         public DbSet<Transaction> Transactions { get; set;}
 
-        public string path = @"C:\Users\kris\source\repos\Portfel\transactionDb.db";
+        public string path = @"C:\Users\gmasi\source\repos\Portfel_WPF\transactionDb.db";
 
         protected override void OnConfiguring(DbContextOptionsBuilder options) => options.UseSqlite($"Data Source ={path}");
     }
