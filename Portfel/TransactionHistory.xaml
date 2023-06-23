@@ -5,23 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Portfel"
         mc:Ignorable="d"
-        Title="TransactionHistory" Height="450" Width="800">
+        Title="Wallet" Height="450" Width="850">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="4"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
 
-        <StackPanel HorizontalAlignment="Center">
-            <TextBlock Text="Wallet Ballance"/>
-            <TextBlock x:Name="walletBallanceTH"/>
+        
+        <StackPanel Grid.Row="0" HorizontalAlignment="Center">
+            <TextBlock x:Name="walletBalanceTextTH" Text="Wallet Ballance" FontSize="18" Margin="0 0 0 6"/>
+            <TextBlock x:Name="walletBallanceTH" Text="12230" TextAlignment="Center" FontSize="25"/>
         </StackPanel>
+        
+        <Button Grid.Row="0" Name="btnRefresh" Content="Refresh" Height="25" Width="50" HorizontalAlignment="Right" Margin="10" Click="btnRefresh_Click"/>
 
-        <Grid Grid.Row="1">
+        <Rectangle Grid.Row="1" Fill="Gray"/>
+
+
+        <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="0.01*" />
+                <ColumnDefinition Width="4" />
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
@@ -29,7 +36,9 @@
                 
             <StackPanel Grid.Column="0">
                 <TextBlock x:Name="incomeNameTH" Text="WPŁATY" HorizontalAlignment="Center"/>
-                <DataGrid x:Name="incomeDG" AutoGenerateColumns="False" CanUserAddRows="False" ColumnWidth="*" Margin="5" IsSynchronizedWithCurrentItem="True">
+
+                
+                    <DataGrid x:Name="incomeDG" AutoGenerateColumns="False" CanUserAddRows="False" ColumnWidth="*" Margin="5" IsSynchronizedWithCurrentItem="True">
                     <DataGrid.Columns>
                         
                         <DataGridTextColumn Header="Name" Binding="{Binding TransactionName}"/>
@@ -40,18 +49,34 @@
                         
                     </DataGrid.Columns>
                     </DataGrid>
+                
             </StackPanel>
 
-            <Rectangle Grid.Column="1" Fill="Black"/>
+            <Rectangle Grid.Column="1" Fill="Gray"/>
 
             <StackPanel Grid.Column="2">
                 <TextBlock x:Name="outcomeNameTH" Text="WYPŁATY" HorizontalAlignment="Center"/>
+                <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <DataGrid x:Name="outcomeDG" AutoGenerateColumns="False" CanUserAddRows="False" ColumnWidth="*" Margin="5" IsSynchronizedWithCurrentItem="True">
+                    <DataGrid.Columns>
 
+                        <DataGridTextColumn Header="Name" Binding="{Binding TransactionName}"/>
+                        <DataGridTextColumn Header="Amount" Binding="{Binding Amount}"/>
+                        <DataGridTextColumn Header="Date" Binding="{Binding date}"/>
+
+
+
+                    </DataGrid.Columns>
+                </DataGrid>
+                    
+                    
+                </ScrollViewer>
+                
             </StackPanel>
 
         </Grid>
 
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
